@@ -1,50 +1,36 @@
 import { NextResponse } from "next/server";
-import { env } from "@/lib/env";
+import { getMailTransporter, mailRecipient } from "@/lib/mailer";
+import { siteConfig } from "@/lib/site";
 
-/**
- * Inscription à la newsletter, transmise à l'API configurée via NEWSLETTER_API_URL.
- * Même logique de repli que /api/contact tant que le backend n'est pas branché.
- */
 export async function POST(req: Request) {
-  let body: { email?: string };
   try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Requête invalide." }, { status: 400 });
-  }
+    const { email } = await req.json();
 
-  const email = body.email?.trim() ?? "";
-  const emailValide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!emailValide) {
-    return NextResponse.json(
-      { success: false, error: "Adresse e-mail invalide." },
-      { status: 400 },
-    );
-  }
-
-  if (!env.NEWSLETTER_API_URL) {
-    console.warn("[newsletter] NEWSLETTER_API_URL non configurée, inscription non transmise:", email);
-    return NextResponse.json({ success: true });
-  }
-
-  try {
-    const res = await fetch(env.NEWSLETTER_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    if (!res.ok) {
+    if (!email) {
       return NextResponse.json(
-        { success: false, error: "Le service de newsletter a refusé la demande." },
-        { status: 502 },
+        { success: false, error: "Adresse mail manquante." },
+        { status: 400 }
       );
     }
+
+    const transporter = getMailTransporter();
+
+    // Notification interne : on avertit simplement l'association qu'une
+    // nouvelle personne souhaite s'abonner à la newsletter.
+    await transporter.sendMail({
+      from: process.env.MAIL_USER,
+      to: mailRecipient,
+      replyTo: email,
+      subject: `Nouvelle inscription newsletter - ${siteConfig.name}`,
+      text: `Nouvelle inscription à la newsletter : ${email}`,
+    });
+
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[newsletter] Erreur d'appel au backend:", error);
+    console.error("Erreur envoi mail (newsletter):", error);
     return NextResponse.json(
-      { success: false, error: "Le service de newsletter est indisponible." },
-      { status: 502 },
+      { success: false, error: "Échec de l'inscription." },
+      { status: 500 }
     );
   }
 }

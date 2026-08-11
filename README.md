@@ -1,45 +1,65 @@
-# VICE TOGO – Site web
+# Site web de l'association VICE TOGO
 
-Site vitrine de l'association VICE TOGO (Vie Culture et Environnement) : éducation des enfants démunis, agriculture biologique et reboisement.
+Site vitrine développé avec Next.js et Tailwind CSS.
 
-## Stack
+## Prérequis
 
-- Next.js 
-- Tailwind CSS 
-- lucide-react (icônes)
+- Node.js 18+
 
-## Architecture
-
-```
-src/
-  app/
-    page.tsx        Page d'accueil 
-    donation/       Page de don 
-    api/contact     Relais vers l'API d'envoi d'e-mails
-    api/newsletter  Relais vers l'API newsletter
-  components/
-    ui/           Composants génériques (Button, Input, Card...)
-    vicetg/       Composants métier (Header, Hero, Footer...)
-  lib/
-    site.ts       Contenu éditorial centralisé (textes, liens, stats)
-    api.ts        Appels du navigateur vers les routes /api
-    env.ts        Variables d'environnement côté serveur
-    types.ts      Types partagés
-    utils.ts      cn() (clsx + tailwind-merge)
-```
-
-## Démarrage
+## Installation
 
 ```bash
 npm install
-cp .env.example .env.local
+```
+
+## Configuration de l'envoi d'e-mails
+
+Le formulaire de contact et l'inscription à la newsletter utilisent
+Nodemailer avec un compte Gmail.
+
+1. Copier `.env.example` en `.env.local`
+2. Activer la validation en 2 étapes sur le compte Gmail utilisé
+3. Générer un mot de passe d'application : https://myaccount.google.com/apppasswords
+4. Renseigner `MAIL_USER`, `MAIL_PASS` et `MAIL_TO` dans `.env.local`
+
+## Développement
+
+```bash
 npm run dev
 ```
 
-## Backend
+Le site est accessible sur http://localhost:3000
 
-Le backend (envoi d'e-mails, newsletter) vit dans un dépôt séparé. Renseigner `CONTACT_API_URL` et `NEWSLETTER_API_URL` dans `.env.local` une fois déployé. Tant que ces variables sont vides, les formulaires répondent en mode démonstration.
+## Build de production
 
-## Màj
+```bash
+npm run build
+npm run start
+```
 
-Textes, articles, statistiques, équipe et partenaires se modifient dans `src/lib/site.ts`, sans toucher aux composants.
+## Structure du projet
+
+```
+├── public/
+│   └── assets/            # images, logos, documents
+└── src/
+    ├── app/
+    │   ├── page.tsx        # accueil (assemblage des sections)
+    │   ├── layout.tsx      # navbar + footer communs à toutes les pages
+    │   ├── blog/           # liste des articles + page détail /blog/[slug]
+    │   ├── donation/       # page dons
+    │   └── api/            # routes contact et newsletter
+    ├── components/
+    │   ├── layout/         # navbar, footer
+    │   ├── sections/       # sections de la page d'accueil
+    │   ├── donation/       # composants propres à la page dons
+    │   └── ui/             # composants réutilisables
+    └── lib/                # constantes du site, données des articles, mailer
+```
+
+## Contribution
+
+1. Forker le dépôt
+2. Créer une branche pour vos modifications
+3. Committer vos changements
+4. Ouvrir une Pull Request

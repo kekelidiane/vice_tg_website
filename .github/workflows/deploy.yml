@@ -16,17 +16,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
-        run: npm install --prefix frontend  # Installation des dépendances uniquement pour le frontend
+        run: npm install
 
       - name: Build project
-        run: npm run build --prefix frontend  # Build du frontend (Next.js)
+        run: npm run build
+        env:
+          MAIL_USER: ${{ secrets.MAIL_USER }}
+          MAIL_PASS: ${{ secrets.MAIL_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
 
-      - name: Export Next.js app (si tu utilises next export)
-        run: npm run export --prefix frontend  # Si tu utilises `next export` pour créer une version statique
-          
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -34,5 +35,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          local-dir: ./frontend/out    # Point vers le dossier de sortie de Next.js
-          server-dir: /public_html/vicetogo/   # Dossier sur Hostinger
+          local-dir: ./.next/
+          server-dir: /public_html/vicetogo/

@@ -1,29 +1,23 @@
-import { Header } from "@/components/vicetg/Header";
-import { Hero } from "@/components/vicetg/Hero";
-import { Mission } from "@/components/vicetg/Mission";
-import { Domains } from "@/components/vicetg/Domains";
-import { Support } from "@/components/vicetg/Support";
-import { Blog } from "@/components/vicetg/Blog";
-import { Team } from "@/components/vicetg/Team";
-import { Partners } from "@/components/vicetg/Partners";
-import { ContactForm } from "@/components/vicetg/ContactForm";
-import { Footer } from "@/components/vicetg/Footer";
+import Hero from "@/components/sections/hero";
+import About from "@/components/sections/about";
+import Actions from "@/components/sections/actions";
+import Team from "@/components/sections/team";
+import Partners from "@/components/sections/partners";
+import Donate from "@/components/sections/donate";
+import BlogPreview from "@/components/sections/blog-preview";
+import Contact from "@/components/sections/contact";
 
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <Mission />
-        <Domains />
-        <Support />
-        <Blog />
-        <Team />
-        <Partners />
-        <ContactForm />
-      </main>
-      <Footer />
+      <Hero />
+      <About />
+      <Actions />
+      <Team />
+      <Partners />
+      <Donate />
+      <BlogPreview />
+      <Contact />
     </>
   );
 }
