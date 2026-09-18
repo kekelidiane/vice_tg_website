@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Faire un don - {{ site.name }}{% endblock %}
+
+{% block content %}
+<div class="bg-white px-6 pb-10 pt-16 md:px-12 md:pt-20 lg:px-24">
+  <div class="mx-auto mb-16 max-w-6xl text-center">
+    <h1 class="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">Ensemble, changeons des vies</h1>
+    <p class="mx-auto mb-4 max-w-3xl text-lg leading-relaxed text-gray-600">
+      Vous pouvez nourrir, soigner ou scolariser un enfant &#129330;. </p>
+    <p>
+      Un simple geste de 1000 F CFA peut nourrir un enfant pendant plusieurs jours. <br> .
+    </p>
+    <p class="text-lg font-semibold text-gray-700">
+      Faites un don maintenant &#128154;
+    </p>
+  </div>
+
+  <div class="mx-auto mb-10 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
+    <a href="{{ site.donation.flooz_tel }}"
+      class="flex flex-col items-center gap-3 rounded-xl border bg-white p-4 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+      <img src="{% static 'assets/logos/Moov_money.jpeg' %}" alt="Flooz" class="size-20 object-contain">
+      <span class="text-xl font-bold text-vice-green-700">{{ site.donation.flooz }}</span>
+      <p class="text-sm text-gray-500">Envoyez votre don via Flooz</p>
+    </a>
+
+    <a href="{{ site.donation.tmoney_tel }}"
+      class="flex flex-col items-center gap-3 rounded-xl border bg-white p-4 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+      <img src="{% static 'assets/logos/Mixx_by_Yas.jpg' %}" alt="Mixx by Yas" class="size-20 object-contain">
+      <span class="text-xl font-bold text-vice-green-700">{{ site.donation.tmoney }}</span>
+      <p class="text-sm text-gray-500">Envoyez votre don via Tmoney</p>
+    </a>
+
+    <a href="{{ site.donation.rib_url }}" target="_blank" rel="noopener noreferrer"
+      class="flex flex-col items-center gap-3 rounded-xl border bg-white p-4 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+      <img src="{% static 'assets/logos/transactions-bank.jpg' %}" alt="Virement bancaire"
+        class="size-20 object-contain">
+      <span class="text-xl font-bold text-vice-green-700 hover:text-vice-gold-500">Voir le RIB</span>
+      <p class="text-sm text-gray-500">Effectuez un virement bancaire sécurisé</p>
+    </a>
+  </div>
+
+  <p class="mx-auto max-w-xl text-center font-light text-gray-700">
+    Nous nous engageons à utiliser chaque don de manière transparente et
+    responsable, pour un impact réel et durable.
+  </p>
+</div>
+{% endblock %}

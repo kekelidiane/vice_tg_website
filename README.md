@@ -1,60 +1,77 @@
-# Site web de l'association VICE TOGO
+# VICE TOGO — site vitrine (Django)
 
-Site vitrine développé avec Next.js et Tailwind CSS.
+Site vitrine de l'association **VICE Togo** (Vie Culture Environnement)
+Association dédiée au soutien scolaire des enfants démunis, à l'agriculture
+biologique et au reboisement.
+
+## Stack technique
+
+- **Django**
+- **Tailwind CSS**
+- **HTMX**
+- **JavaScript vanilla**
 
 ## Prérequis
 
+- Python 3.11+
 - Node.js 18+
 
 ## Installation
 
+### 1. Cloner le projet et créer l'environnement virtuel
+
 ```bash
-npm install
+git clone https://github.com/kekelidiane/vice_tg_website.git
+cd vice_tg_website
+
+python3 -m venv .venv
+source .venv\Scripts\activate
 ```
 
-## Configuration de l'envoi d'e-mails
-
-Le formulaire de contact et l'inscription à la newsletter utilisent
-Nodemailer avec un compte Gmail.
-
-1. Copier `.env.example` en `.env.local`
-2. Activer la validation en 2 étapes sur le compte Gmail utilisé
-3. Générer un mot de passe d'application : https://myaccount.google.com/apppasswords
-4. Renseigner `MAIL_USER`, `MAIL_PASS` et `MAIL_TO` dans `.env.local`
-
-## Développement
+### 2. Installer les dépendances Python
 
 ```bash
+pip install -r requirements.txt
+```
+
+### 3. Installer les dépendances Node et compiler Tailwind
+
+```bash
+npm install
+npm run build
 npm run dev
 ```
 
-Le site est accessible sur http://localhost:3000
-
-## Build de production
+### 4. Configurer les variables d'environnement
 
 ```bash
-npm run build
-npm run start
+cp .env.example .env
 ```
+
+Accessible sur http://127.0.0.1:8000
 
 ## Structure du projet
 
 ```
-├── public/
-│   └── assets/            # images, logos, documents
-└── src/
-    ├── app/
-    │   ├── page.tsx        # accueil (assemblage des sections)
-    │   ├── layout.tsx      # navbar + footer communs à toutes les pages
-    │   ├── blog/           # liste des articles + page détail /blog/[slug]
-    │   ├── donation/       # page dons
-    │   └── api/            # routes contact et newsletter
-    ├── components/
-    │   ├── layout/         # navbar, footer
-    │   ├── sections/       # sections de la page d'accueil
-    │   ├── donation/       # composants propres à la page dons
-    │   └── ui/             # composants réutilisables
-    └── lib/                # constantes du site, données des articles, mailer
+config/                     (settings, urls, wsgi/asgi)
+core/              
+├── views.py              
+├── forms.py               
+├── urls.py
+├── site.py                
+├── context_processors.py  
+└── data/
+    └── articles.py         
+templates/
+├── base.html               (head, navbar, footer)
+├── components/             (navbar.html, footer.html)
+├── sections/               (hero, about, actions...)
+├── pages/                  (home.html, blog_list.html, blog_detail.html, donation.html)
+└── partials/               (HTMX)
+static/
+├── css/
+├── js/main.js
+└── assets/
 ```
 
 ## Contribution
@@ -63,3 +80,6 @@ npm run start
 2. Créer une branche pour vos modifications
 3. Committer vos changements
 4. Ouvrir une Pull Request
+
+
+# *_ARIGATO_*

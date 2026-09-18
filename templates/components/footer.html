@@ -1,0 +1,66 @@
+<footer class="bg-vice-green-700 px-6 py-10 text-white md:px-12 lg:px-24">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+    <div class="text-center md:text-left">
+      <h2 class="mb-4 text-xl font-semibold text-vice-gold-400">Et vous ?</h2>
+      <p class="font-bold">
+        Rejoignez notre association pour
+        <br>qu'ensemble, nous contribuions
+        <br>à un monde meilleur.
+      </p>
+    </div>
+
+    <div class="text-center md:text-left">
+      <h2 class="mb-4 text-xl font-semibold text-vice-gold-400">Nous découvrir</h2>
+      <ul class="space-y-2">
+        <li><a href="{% url 'core:home' %}#about" class="transition hover:text-vice-gold-300">À propos</a></li>
+        <li><a href="{% url 'core:blog_list' %}" class="transition hover:text-vice-gold-300">Nos activités</a></li>
+        <li><a href="{% url 'core:home' %}#donate" class="transition hover:text-vice-gold-300">Nos produits maraîchers</a></li>
+      </ul>
+    </div>
+
+    <div class="text-center md:text-left">
+      <h2 class="mb-4 text-xl font-semibold text-vice-gold-400">S'abonner à notre newsletter</h2>
+
+      <form
+        hx-post="{% url 'core:newsletter_submit' %}"
+        hx-target="#newsletter-result"
+        hx-swap="innerHTML"
+        hx-disabled-elt="find button[type='submit']"
+        hx-on::after-request="if(event.detail.successful) this.reset()"
+        class="mb-4 flex flex-col gap-4 sm:flex-row"
+      >
+        {% csrf_token %}
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Entrez votre adresse mail"
+          class="flex-1 rounded-lg border border-gray-300 px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-vice-gold-400"
+        >
+        <button
+          type="submit"
+          class="rounded-lg bg-vice-gold-400 px-4 py-2 font-semibold text-vice-green-700 transition hover:bg-vice-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          S'abonner
+        </button>
+      </form>
+      <div id="newsletter-result"></div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+        <span class="mb-2 font-semibold text-vice-gold-400 sm:mb-0">Suivez-nous sur</span>
+        <div class="flex justify-center gap-4 text-2xl sm:justify-start">
+          <a href="{{ site.facebook }}" target="_blank" rel="noopener noreferrer" class="transition hover:text-vice-gold-400" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 text-center">
+    <p class="text-sm text-white">
+      &copy; {{ site.name }} {{ current_year }} | Tous droits réservés. Réalisé par
+      <a href="{{ site.credit.url }}" target="_blank" rel="noopener noreferrer" class="text-vice-gold-300 transition hover:text-white">{{ site.credit.name }}</a>
+    </p>
+  </div>
+</footer>

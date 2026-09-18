@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Les ancres (#about, #contact...) scrollent normalement sous la navbar
+       fixe et cachent le titre de la section. scroll-padding-top compense
+       la hauteur de la navbar selon la taille d'écran. */
+    scroll-padding-top: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 5.5rem;
+    }
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  /* Petit badge "eyebrow" au-dessus des titres de section, dans l'esprit
+     du design d'inspiration : majuscule, espacé, couleur d'accent. */
+  .section-eyebrow {
+    @apply mb-3 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-vice-green-700;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-vice-green-700 px-6 py-3 font-semibold text-white shadow transition hover:bg-vice-green-800;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-vice-green-700 px-6 py-3 font-semibold text-vice-green-700 transition hover:bg-vice-green-50;
+  }
+
+  .card {
+    @apply rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-lg;
+  }
+
+  .icon-chip {
+    @apply flex size-11 items-center justify-center rounded-xl bg-vice-green-50 text-vice-green-700;
+  }
+}
