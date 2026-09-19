@@ -1,10 +1,10 @@
-# VICE TOGO — site vitrine (Django)
+# VICE TOGO ASSOCIATION
 
-Site vitrine de l'association **VICE Togo** (Vie Culture Environnement)
+Site vitrine de l'association **VICE TOGO** (Vie Culture et Environnement).
 Association dédiée au soutien scolaire des enfants démunis, à l'agriculture
 biologique et au reboisement.
 
-## Stack technique
+## Stack
 
 - **Django**
 - **Tailwind CSS**
