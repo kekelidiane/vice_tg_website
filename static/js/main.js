@@ -1,6 +1,4 @@
-// ---------------------------------------------------------------------------
 // Menu mobile
-// ---------------------------------------------------------------------------
 (function initMobileMenu() {
   const btn = document.getElementById("mobile-menu-btn");
   const icon = document.getElementById("mobile-menu-icon");
@@ -23,11 +21,6 @@
   });
 })();
 
-// ---------------------------------------------------------------------------
-// Scrollspy : sur la page d'accueil, met en évidence le lien de nav
-// correspondant à la section actuellement visible. Sur les autres pages
-// (blog, don...), c'est le chemin de l'URL qui détermine le lien actif.
-// ---------------------------------------------------------------------------
 (function initScrollspy() {
   const homeSections = ["home", "about", "donate", "blog", "contact"];
   const navLinks = document.querySelectorAll(".nav-link");
@@ -66,10 +59,7 @@
   }
 })();
 
-// ---------------------------------------------------------------------------
-// Compteurs animés (section À propos) : compte de 0 jusqu'à la valeur cible
-// quand l'élément entre dans le viewport.
-// ---------------------------------------------------------------------------
+// Compteurs animés
 (function initCounters() {
   const counters = document.querySelectorAll(".counter");
   if (!counters.length) return;

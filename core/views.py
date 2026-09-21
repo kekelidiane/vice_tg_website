@@ -5,7 +5,7 @@ from django.conf import settings
 from django.http import Http404
 from django.shortcuts import render
 
-from core.data.articles import ARTICLES, get_article_by_slug
+from core.data.articles import ARTICLES, get_article_by_slug, get_recent_articles
 from core.forms import ContactForm, NewsletterForm
 from core.site import SITE_CONFIG
 
@@ -32,18 +32,18 @@ def blog_detail(request, slug):
     article = get_article_by_slug(slug)
     if article is None:
         raise Http404("Article introuvable")
-    return render(request, "pages/blog_detail.html", {"article": article})
+    return render(
+        request,
+        "pages/blog_detail.html",
+        {
+            "article": article,
+            "recent_articles": get_recent_articles(3, exclude_slug=slug),
+        },
+    )
 
 
 def donation(request):
     return render(request, "pages/donation.html")
-
-
-# ---------------------------------------------------------------------------
-# Endpoints HTMX : chacun retourne un petit fragment HTML (pas de rechargement
-# de page), équivalent des handlers /api/contact et /api/newsletter de la
-# version Next.js d'origine.
-# ---------------------------------------------------------------------------
 
 
 def contact_submit(request):
