@@ -1,7 +1,7 @@
 # VICE TOGO ASSOCIATION
 
-Site vitrine de l'association **VICE TOGO** (Vie Culture et Environnement).
-Association dédiée au soutien scolaire des enfants démunis, à l'agriculture
+Site vitrine de **VICE TOGO** (Vie Culture et Environnement).
+Une association dédiée au soutien scolaire des enfants démunis, à l'agriculture
 biologique et au reboisement.
 
 ## Stack
