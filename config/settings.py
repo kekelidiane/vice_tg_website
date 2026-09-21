@@ -10,7 +10,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env.bool("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=['.onrender.com', "localhost", "127.0.0.1"])
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
