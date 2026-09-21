@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Blog - {{ site.name }}{% endblock %}
+{% block title %}Actualités - {{ site.name }}{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-gray-50 px-6 pb-20 pt-16 md:px-12 md:pt-20 lg:px-24">
+<div class="min-h-screen bg-gray-50 px-6 pb-20 pt-10 md:px-12 md:pt-14 lg:px-24">
+
+  <div class="mx-auto mb-8 max-w-6xl">
+    <a href="{% url 'core:home' %}"
+      class="inline-flex items-center gap-2 rounded-xl border border-vice-green-700 px-4 py-2 text-sm font-semibold text-vice-green-700 transition hover:bg-vice-green-50">
+      <span aria-hidden="true">&larr;</span> Retour à l'accueil
+    </a>
+  </div>
+
   <div class="mx-auto mb-12 max-w-3xl text-center">
     <h1 class="section-title mb-4">Toutes nos actualités</h1>
     <p class="text-lg leading-relaxed text-gray-700">
@@ -19,17 +27,35 @@
     <a href="{% url 'core:blog_detail' article.slug %}"
       class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition hover:shadow-xl">
       <div class="relative h-56 w-full overflow-hidden">
-        <img src="{% static article.image %}" alt="{{ article.title }}" class="size-full object-cover">
+        <img src="{% static article.image %}" alt="{{ article.title }}"
+          class="size-full object-cover transition duration-300 hover:scale-105">
       </div>
       <div class="flex flex-grow flex-col p-6">
+        {% if article.tags %}
+        <div class="mb-3 flex flex-wrap gap-2">
+          {% for tag in article.tags %}
+          <span class="tag-chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
         <h2 class="mb-2 text-xl font-semibold text-vice-green-700 transition hover:text-vice-gold-500">
           {{ article.title }}
         </h2>
-        <p class="mb-3 text-sm">
-          <span class="text-vice-gold-600">{{ article.date }}</span> par <span class="text-vice-green-700">
-            {{ article.author }}</span>
+
+        <p class="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+          <span class="text-vice-gold-600">{{ article.date }}</span>
+          <span class="text-gray-400"> • </span>
+          <span class="text-vice-green-700">{{ article.author }}</span>
+          {% if article.read_time %}
+          <span class="text-gray-400"> • </span>
+          <span class="text-gray-500">{{ article.read_time }} min de lecture</span>
+          {% endif %}
         </p>
+
         <p class="flex-grow text-gray-700">{{ article.excerpt }}</p>
+
+        <span class="mt-4 text-sm font-semibold text-vice-green-700">Lire l'article &rarr;</span>
       </div>
     </a>
     {% endfor %}

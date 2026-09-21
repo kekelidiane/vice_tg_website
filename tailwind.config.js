@@ -3,11 +3,16 @@ module.exports = {
   content: [
     "./templates/**/*.html",
     "./core/**/*.py",
+    "./static/js/**/*.js",
+  ],
+  safelist: [
+    "page-loading-overlay",
+    "spinner-lg",
+    "is-loading",
   ],
   theme: {
     extend: {
       colors: {
-        // Vert extrait du logo VICE TOGO (#00923f)
         "vice-green": {
           50: "#eafaf0",
           100: "#cdf2dc",
@@ -20,7 +25,7 @@ module.exports = {
           800: "#00632a",
           900: "#005022",
         },
-        // Jaune/or extrait du logo VICE TOGO (#f6c915)
+
         "vice-gold": {
           50: "#fffbea",
           100: "#fff3c2",

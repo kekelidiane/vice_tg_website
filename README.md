@@ -39,13 +39,27 @@ pip install -r requirements.txt
 ```bash
 npm install
 npm run build
-npm run dev
 ```
 
 ### 4. Configurer les variables d'environnement
 
 ```bash
 cp .env.example .env
+```
+
+### 5. Lancer le serveur
+
+Dans un premier terminal :
+
+```bash
+npm run dev
+```
+
+Dans un second terminal :
+
+```bash
+python manage.py migrate
+python manage.py runserver
 ```
 
 Accessible sur http://127.0.0.1:8000
@@ -61,17 +75,17 @@ core/
 ├── site.py                
 ├── context_processors.py  
 └── data/
-    └── articles.py         
+    └── articles.py         (liste temporaire des articles du blog)
 templates/
-├── base.html               (head, navbar, footer)
-├── components/             (navbar.html, footer.html)
-├── sections/               (hero, about, actions...)
-├── pages/                  (home.html, blog_list.html, blog_detail.html, donation.html)
-└── partials/               (HTMX)
+├── base.html
+├── components/
+├── sections/
+├── pages/
+└── partials/
 static/
 ├── css/
 ├── js/main.js
-└── assets/
+└── assets/ 
 ```
 
 ## Contribution

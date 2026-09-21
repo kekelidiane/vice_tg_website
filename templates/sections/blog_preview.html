@@ -1,5 +1,5 @@
 {% load static %}
-<section id="blog" class="bg-gray-50 px-6 py-16 md:px-12 lg:px-24">
+<section id="blog" class="full-section bg-gray-50 px-6 py-16 md:px-12 lg:px-24">
   <div class="mx-auto mb-12 max-w-3xl text-center">
     <span class="section-eyebrow">Actualités</span>
     <h2 class="section-title mb-4">Consultez notre blog</h2>
@@ -31,6 +31,8 @@
   </div>
 
   <div class="mt-12 text-center">
-    <a href="{% url 'core:blog_list' %}" class="btn-primary">Voir plus d'articles</a>
+    <a href="{% url 'core:blog_list' %}" class="btn-primary">
+      <span class="btn-label">Voir plus d'articles</span>
+    </a>
   </div>
 </section>
