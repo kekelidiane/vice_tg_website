@@ -1,0 +1,48 @@
+{% load static %}
+<section id="donate" class="bg-gray-50 px-6 py-16 md:px-12 lg:px-24">
+  <div class="mx-auto mb-12 max-w-3xl text-center">
+    <h2 class="section-title mb-4">Soutenez VICE TOGO</h2>
+    <p class="text-lg leading-relaxed text-gray-700 md:text-xl">
+      Votre soutien nous permet de continuer nos actions pour l'éducation et
+      l'environnement.
+    </p>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+    <div class="card flex flex-col items-center text-center">
+      <div class="mb-4 text-5xl">&#128154;</div>
+      <h3
+        class="mb-4 inline-block border-b-4 border-vice-gold-400 pb-2 text-xl font-bold text-vice-green-700 transition hover:text-vice-gold-500">
+        <a href="{% url 'core:donation' %}">Faire un don</a>
+      </h3>
+      <p class="text-gray-600">
+        Soutenez notre cause en contribuant financièrement pour l'avenir des
+        enfants et la planète.
+      </p>
+    </div>
+
+    <div class="card flex flex-col items-center text-center">
+      <div class="mb-4 text-5xl">&#129365;</div>
+      <h3
+        class="mb-4 inline-block border-b-4 border-vice-gold-400 pb-2 text-xl font-bold text-vice-green-700 transition hover:text-vice-gold-500">
+        <a href="{{ site.whatsapp_orders }}" target="_blank" rel="noopener noreferrer">Acheter nos produits</a>
+      </h3>
+      <p class="text-gray-600">
+        Achetez nos légumes et produits issus de l'agriculture bio, cultivés
+        durablement pour soutenir nos actions.
+      </p>
+    </div>
+
+    <div class="card flex flex-col items-center text-center">
+      <div class="mb-4 text-5xl">&#129309;</div>
+      <h3
+        class="mb-4 inline-block border-b-4 border-vice-gold-400 pb-2 text-xl font-bold text-vice-green-700 transition hover:text-vice-gold-500">
+        <a href="{{ site.whatsapp_volunteers }}" target="_blank" rel="noopener noreferrer">Devenir bénévole</a>
+      </h3>
+      <p class="text-gray-600">
+        Rejoignez notre communauté WhatsApp, notre équipe de bénévoles
+        engagés pour participer activement à nos projets.
+      </p>
+    </div>
+  </div>
+</section>

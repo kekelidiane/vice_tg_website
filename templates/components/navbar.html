@@ -1,0 +1,31 @@
+{% load static %}
+<nav class="fixed top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-md" id="navbar">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="{% url 'core:home' %}" class="shrink-0">
+      <img src="{% static 'assets/logos/logo.png' %}" alt="Logo VICE TOGO" class="h-10 w-auto md:h-12 lg:h-14">
+    </a>
+
+    <ul class="hidden gap-6 font-medium md:flex" id="nav-links-desktop">
+      <li><a href="{% url 'core:home' %}" data-nav-id="home" class="nav-link transition-colors hover:text-vice-green-700">Accueil</a></li>
+      <li><a href="{% url 'core:home' %}#about" data-nav-id="about" class="nav-link transition-colors hover:text-vice-green-700">À propos</a></li>
+      <li><a href="{% url 'core:home' %}#donate" data-nav-id="donate" class="nav-link transition-colors hover:text-vice-green-700">Nous soutenir</a></li>
+      <li><a href="{% url 'core:blog_list' %}" data-nav-id="blog" class="nav-link transition-colors hover:text-vice-green-700">Actualités</a></li>
+      <li><a href="{% url 'core:home' %}#contact" data-nav-id="contact" class="nav-link transition-colors hover:text-vice-green-700">Nous contacter</a></li>
+    </ul>
+
+    <button id="mobile-menu-btn" aria-label="Ouvrir le menu" class="text-2xl text-gray-800 md:hidden">
+      <span id="mobile-menu-icon">&#9776;</span>
+    </button>
+  </div>
+
+  <ul id="nav-links-mobile" class="hidden space-y-2 bg-white px-6 pb-4 font-medium md:hidden">
+    <li><a href="{% url 'core:home' %}" data-nav-id="home" class="nav-link block py-1 transition-colors hover:text-vice-green-700">Accueil</a></li>
+    <li><a href="{% url 'core:home' %}#about" data-nav-id="about" class="nav-link block py-1 transition-colors hover:text-vice-green-700">À propos</a></li>
+    <li><a href="{% url 'core:home' %}#donate" data-nav-id="donate" class="nav-link block py-1 transition-colors hover:text-vice-green-700">Nous soutenir</a></li>
+    <li><a href="{% url 'core:blog_list' %}" data-nav-id="blog" class="nav-link block py-1 transition-colors hover:text-vice-green-700">Actualités</a></li>
+    <li><a href="{% url 'core:home' %}#contact" data-nav-id="contact" class="nav-link block py-1 transition-colors hover:text-vice-green-700">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<!-- Compense la hauteur de la navbar fixe pour ne pas cacher le début du contenu -->
+<div class="h-16 md:h-[4.5rem] lg:h-20" aria-hidden="true"></div>

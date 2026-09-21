@@ -1,45 +1,85 @@
-# VICE TOGO – Site web
+# VICE TOGO ASSOCIATION
 
-Site vitrine de l'association VICE TOGO (Vie Culture et Environnement) : éducation des enfants démunis, agriculture biologique et reboisement.
+Site vitrine de l'association **VICE TOGO** (Vie Culture et Environnement).
+Association dédiée au soutien scolaire des enfants démunis, à l'agriculture
+biologique et au reboisement.
 
 ## Stack
 
-- Next.js 
-- Tailwind CSS 
-- lucide-react (icônes)
+- **Django**
+- **Tailwind CSS**
+- **HTMX**
+- **JavaScript vanilla**
 
-## Architecture
+## Prérequis
 
-```
-src/
-  app/
-    page.tsx        Page d'accueil 
-    donation/       Page de don 
-    api/contact     Relais vers l'API d'envoi d'e-mails
-    api/newsletter  Relais vers l'API newsletter
-  components/
-    ui/           Composants génériques (Button, Input, Card...)
-    vicetg/       Composants métier (Header, Hero, Footer...)
-  lib/
-    site.ts       Contenu éditorial centralisé (textes, liens, stats)
-    api.ts        Appels du navigateur vers les routes /api
-    env.ts        Variables d'environnement côté serveur
-    types.ts      Types partagés
-    utils.ts      cn() (clsx + tailwind-merge)
+- Python 3.11+
+- Node.js 18+
+
+## Installation
+
+### 1. Cloner le projet et créer l'environnement virtuel
+
+```bash
+git clone https://github.com/kekelidiane/vice_tg_website.git
+cd vice_tg_website
+
+python3 -m venv .venv
+source .venv\Scripts\activate
 ```
 
-## Démarrage
+### 2. Installer les dépendances Python
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Installer les dépendances Node et compiler Tailwind
 
 ```bash
 npm install
-cp .env.example .env.local
+npm run build
 npm run dev
 ```
 
-## Backend
+### 4. Configurer les variables d'environnement
 
-Le backend (envoi d'e-mails, newsletter) vit dans un dépôt séparé. Renseigner `CONTACT_API_URL` et `NEWSLETTER_API_URL` dans `.env.local` une fois déployé. Tant que ces variables sont vides, les formulaires répondent en mode démonstration.
+```bash
+cp .env.example .env
+```
 
-## Màj
+Accessible sur http://127.0.0.1:8000
 
-Textes, articles, statistiques, équipe et partenaires se modifient dans `src/lib/site.ts`, sans toucher aux composants.
+## Structure du projet
+
+```
+config/                     (settings, urls, wsgi/asgi)
+core/              
+├── views.py              
+├── forms.py               
+├── urls.py
+├── site.py                
+├── context_processors.py  
+└── data/
+    └── articles.py         
+templates/
+├── base.html               (head, navbar, footer)
+├── components/             (navbar.html, footer.html)
+├── sections/               (hero, about, actions...)
+├── pages/                  (home.html, blog_list.html, blog_detail.html, donation.html)
+└── partials/               (HTMX)
+static/
+├── css/
+├── js/main.js
+└── assets/
+```
+
+## Contribution
+
+1. Forker le dépôt
+2. Créer une branche pour vos modifications
+3. Committer vos changements
+4. Ouvrir une Pull Request
+
+
+# *_ARIGATO_*

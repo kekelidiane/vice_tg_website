@@ -1,0 +1,43 @@
+{% load static %}
+<section id="contact" class="bg-gray-50 px-6 py-16 md:px-12 lg:px-24">
+  <div class="mx-auto mb-12 max-w-3xl text-center">
+    <h2 class="section-title mb-4">Contactez-nous</h2>
+    <p class="text-lg leading-relaxed text-gray-700 md:text-xl">
+      Vous avez d'autres questions ?
+      <a href="{{ site.whatsapp_contact }}"
+        class="font-semibold text-vice-green-700 transition hover:text-vice-gold-500">Écrivez-nous</a>
+      ou envoyez-nous un mail !
+    </p>
+  </div>
+
+  <form hx-post="{% url 'core:contact_submit' %}" hx-target="#contact-result" hx-swap="innerHTML"
+    hx-disabled-elt="find button[type='submit']" hx-on::after-request="if(event.detail.successful) this.reset()"
+    class="mx-auto max-w-3xl space-y-6">
+    {% csrf_token %}
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <input type="text" name="nom" placeholder="Nom" required
+        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-vice-green-500">
+      <input type="text" name="prenom" placeholder="Prénom(s)"
+        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-vice-green-500">
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <input type="email" name="email" placeholder="Adresse mail" required
+        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-vice-green-500">
+      <input type="text" name="objet" placeholder="Objet"
+        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-vice-green-500">
+    </div>
+
+    <textarea name="message" placeholder="Votre message" rows="6" required
+      class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-vice-green-500"></textarea>
+
+    <div class="text-center">
+      <button type="submit" class="btn-primary disabled:cursor-not-allowed disabled:opacity-60">
+        Envoyer
+      </button>
+    </div>
+
+    <div id="contact-result"></div>
+  </form>
+</section>

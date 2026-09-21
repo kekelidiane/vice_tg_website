@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog - {{ site.name }}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 px-6 pb-20 pt-16 md:px-12 md:pt-20 lg:px-24">
+  <div class="mx-auto mb-12 max-w-3xl text-center">
+    <h1 class="section-title mb-4">Toutes nos actualités</h1>
+    <p class="text-lg leading-relaxed text-gray-700">
+      Découvrez tout ce qu'on fait sur le terrain au jour le jour :
+      nos projets dans notre communauté pour les enfants, nos actions pour
+      protéger la nature et nos moments de partage avec les habitants.
+    </p>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {% for article in articles %}
+    <a href="{% url 'core:blog_detail' article.slug %}"
+      class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition hover:shadow-xl">
+      <div class="relative h-56 w-full overflow-hidden">
+        <img src="{% static article.image %}" alt="{{ article.title }}" class="size-full object-cover">
+      </div>
+      <div class="flex flex-grow flex-col p-6">
+        <h2 class="mb-2 text-xl font-semibold text-vice-green-700 transition hover:text-vice-gold-500">
+          {{ article.title }}
+        </h2>
+        <p class="mb-3 text-sm">
+          <span class="text-vice-gold-600">{{ article.date }}</span> par <span class="text-vice-green-700">
+            {{ article.author }}</span>
+        </p>
+        <p class="flex-grow text-gray-700">{{ article.excerpt }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

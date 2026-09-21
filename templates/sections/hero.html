@@ -1,0 +1,36 @@
+{% load static %}
+<section id="home" class="bg-gradient-to-b from-vice-green-50 to-gray-50 px-6 pb-28 pt-16 md:px-12 md:pb-32 lg:px-24">
+  <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
+    <div>
+      <span class="section-eyebrow">Association VICE TOGO</span>
+      <h1 class="mb-4 text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
+        Vie <span class="text-vice-green-700">Culture</span>
+        <span class="text-vice-gold-500">Environnement</span>
+      </h1>
+
+      <p class="mb-4 text-lg leading-relaxed text-gray-700">
+        L'Association <span class="font-semibold text-vice-green-700">VICE TOGO</span>
+        s'engage au quotidien pour offrir un avenir meilleur aux enfants les plus démunis
+        grâce à l'éducation, tout en agissant activement pour la préservation de la planète
+        à travers l'agriculture biologique, la promotion d'une alimentation saine et le reboisement.
+      </p>
+
+      <p class="mb-6 leading-relaxed text-gray-700">
+        Vous pouvez soutenir notre mission en faisant un don, en vous engageant
+        comme bénévole ou simplement en partageant notre cause autour de vous.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#donate" class="btn-primary">Faire un don</a>
+        <a href="#contact" class="btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <div class="relative aspect-[4/3] w-full max-w-md overflow-hidden rounded-2xl shadow-xl">
+        <img src="{% static 'assets/agro/ujpod.jpg' %}" alt="Champs cultivés par l'association"
+          class="size-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>

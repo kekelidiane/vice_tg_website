@@ -1,0 +1,49 @@
+{% load static %}
+
+<section id="team" class="bg-gray-50 px-6 py-24 md:px-12 lg:px-24">
+  <div class="mx-auto mb-12 max-w-3xl text-center">
+    <h2 class="section-title mb-4">Notre équipe</h2>
+    <p class="text-lg leading-relaxed text-green-700 md:text-xl">
+      ...
+    </p>
+  </div>
+
+  <div class="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
+    <div class="text-center group">
+      <div
+        class="mx-auto mb-4 size-32 md:size-36 overflow-hidden rounded-2xl border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-105 bg-gray-200">
+        <img src="{% static 'assets/team/eddie.jpeg' %}" alt="Éddie Kodjovi" class="h-full w-full object-cover">
+      </div>
+      <h3 class="font-bold text-gray-800">Éddie Kodjovi</h3>
+      <p class="text-sm font-medium text-gray-600">Président</p>
+    </div>
+
+    <div class="text-center group">
+      <div
+        class="mx-auto mb-4 size-32 md:size-36 overflow-hidden rounded-2xl border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-105 bg-gray-200">
+        <img src="{% static 'assets/team/celebre.jpeg' %}" alt="Célèbre" class="h-full w-full object-cover">
+      </div>
+      <h3 class="font-bold text-gray-800">Célèbre</h3>
+      <p class="text-sm font-medium text-gray-600">Responsable communication</p>
+    </div>
+
+    <div class="text-center group">
+      <div
+        class="mx-auto mb-4 size-32 md:size-36 overflow-hidden rounded-2xl border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-105 bg-gray-200">
+        <img src="{% static 'assets/team/reine.jpeg' %}" alt="Reine" class="h-full w-full object-cover">
+      </div>
+      <h3 class="font-bold text-gray-800">Reine</h3>
+      <p class="text-sm font-medium text-gray-600">Responsable de la bibliothèque</p>
+    </div>
+
+    <div class="text-center group">
+      <div
+        class="mx-auto mb-4 size-32 md:size-36 overflow-hidden rounded-2xl border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-105 bg-gray-200">
+        <img src="{% static 'assets/team/diane.jpeg' %}" alt="Diane" class="h-full w-full object-cover">
+      </div>
+      <h3 class="font-bold text-gray-800">Diane</h3>
+      <p class="text-sm font-medium text-gray-600">Responsable des projets</p>
+    </div>
+
+  </div>
+</section>

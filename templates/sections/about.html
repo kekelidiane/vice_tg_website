@@ -1,0 +1,95 @@
+{% load static %}
+<section id="about" class="space-y-16 bg-gray-50 px-6 py-24 md:px-12 lg:px-24">
+
+  <div class="rounded-2xl bg-white px-6 py-16 shadow-md md:px-12">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
+      <div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-md">
+        <img src="{% static 'assets/edu/enfants.jpg' %}" alt="Enfants soutenus par l'association"
+          class="size-full object-cover">
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-gray-900">Notre mission</h2>
+        <p class="leading-relaxed text-gray-700">
+          L'Association <span class="font-semibold text-vice-green-700">VICE TOGO</span>
+          s'engage avec passion pour offrir un avenir meilleur aux enfants les plus démunis
+          grâce à l'accès à l'éducation, tout en promouvant activement l'agriculture biologique,
+          la consommation responsable et le reboisement.
+
+
+        </p>
+        <p class="leading-relaxed text-gray-700">
+          Vous pouvez soutenir notre action dès aujourd'hui en faisant un don, en vous
+          mobilisant comme bénévole ou en faisant connaître notre cause auprès de votre entourage.
+
+        </p>
+        <p class="leading-relaxed text-gray-700">
+          Ensemble, nous avons le pouvoir d'offrir aux enfants une éducation de qualité,
+          de diffuser des pratiques agricoles durables et de protéger notre environnement
+          pour les générations à venir.
+
+        </p>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 text-center md:grid-cols-3">
+      <div class="card">
+        <h3 class="text-4xl font-bold text-vice-green-700">
+          <span class="counter" data-counter-target="52">0</span>
+        </h3>
+        <p class="text-gray-600">Nombre d'enfants</p>
+      </div>
+      <div class="card">
+        <h3 class="text-4xl font-bold text-vice-gold-500">
+          <span class="counter" data-counter-target="2">0</span>
+        </h3>
+        <p class="text-gray-600">Nombre de donateurs</p>
+      </div>
+      <div class="card">
+        <h3 class="text-4xl font-bold text-vice-green-700">
+          <span class="counter" data-counter-target="24">0</span>
+        </h3>
+        <p class="text-gray-600">Nombre de volontaires</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rounded-2xl bg-white px-6 py-16 shadow-md md:px-12">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-gray-900">Notre engagement</h2>
+        <p class="leading-relaxed text-gray-700">
+          <span class="font-semibold text-vice-green-700">VICE TOGO</span> porte une double
+          ambition : offrir aux enfants les clés de leur réussite par l'éducation et agir
+          pour la préservation de notre environnement.
+        </p>
+
+        <ul class="list-inside list-disc space-y-3 leading-relaxed text-gray-700">
+          <li>
+            <span class="font-semibold">Soutien scolaire : </span>
+            Nous faisons du soutien scolaire aux enfants défavorisés, en les
+            aidant à acquérir les compétences et connaissances nécessaires au
+            sein de notre bibliothèque.
+          </li>
+          <li>
+            <span class="font-semibold">Agriculture durable : </span>
+            Nous promouvons les pratiques agricoles durables et biologiques
+            pour protéger l'environnement, assurer une alimentation saine et
+            renforcer les moyens de subsistance des communautés.
+          </li>
+          <li>
+            <span class="font-semibold">Reboisement : </span>
+            Nous nous engageons à planter des arbres et à restaurer les
+            écosystèmes forestiers pour lutter contre la déforestation et
+            favoriser la biodiversité.
+          </li>
+        </ul>
+      </div>
+
+      <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md">
+        <img src="{% static 'assets/agro/filles.jpg' %}" alt="Notre engagement et approche"
+          class="size-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>

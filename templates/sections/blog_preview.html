@@ -1,0 +1,36 @@
+{% load static %}
+<section id="blog" class="bg-gray-50 px-6 py-16 md:px-12 lg:px-24">
+  <div class="mx-auto mb-12 max-w-3xl text-center">
+    <span class="section-eyebrow">Actualités</span>
+    <h2 class="section-title mb-4">Consultez notre blog</h2>
+    <p class="text-lg leading-relaxed text-gray-700 md:text-xl">
+      Découvrez nos activités scolaires, environnementales et de
+      sensibilisation.
+    </p>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {% for article in latest_articles %}
+    <a href="{% url 'core:blog_detail' article.slug %}"
+      class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition hover:shadow-xl">
+      <div class="relative h-56 w-full overflow-hidden">
+        <img src="{% static article.image %}" alt="{{ article.title }}" class="size-full object-cover">
+      </div>
+      <div class="flex flex-grow flex-col p-6">
+        <h3 class="mb-2 text-xl font-semibold text-vice-green-700 transition hover:text-vice-gold-500">
+          {{ article.title }}
+        </h3>
+        <p class="mb-3 text-sm">
+          <span class="text-vice-gold-600">{{ article.date }}</span> par <span class="text-vice-green-700">
+            {{ article.author }}</span>
+        </p>
+        <p class="flex-grow text-gray-700">{{ article.excerpt }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="mt-12 text-center">
+    <a href="{% url 'core:blog_list' %}" class="btn-primary">Voir plus d'articles</a>
+  </div>
+</section>
