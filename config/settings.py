@@ -90,3 +90,4 @@ MAIL_TO = env("MAIL_TO", default=EMAIL_HOST_USER)
 
 if DEBUG and not EMAIL_HOST_USER:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ 

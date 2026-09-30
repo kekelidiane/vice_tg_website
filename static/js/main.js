@@ -97,3 +97,4 @@
 
   counters.forEach((el) => observer.observe(el));
 })();
+ 

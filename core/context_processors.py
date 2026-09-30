@@ -8,3 +8,4 @@ def site_config(request):
         "site": SITE_CONFIG,
         "current_year": datetime.now().year,
     }
+ 

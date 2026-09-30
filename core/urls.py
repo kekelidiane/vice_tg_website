@@ -12,3 +12,4 @@ urlpatterns = [
     path("api/contact/", views.contact_submit, name="contact_submit"),
     path("api/newsletter/", views.newsletter_submit, name="newsletter_submit"),
 ]
+ 

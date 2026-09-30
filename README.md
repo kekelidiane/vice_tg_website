@@ -96,4 +96,4 @@ static/
 4. Ouvrir une Pull Request
 
 
-# *_ARIGATO_*
+# *_ARIGATO_* 

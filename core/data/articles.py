@@ -659,3 +659,4 @@ def get_article_by_slug(slug):
 def get_recent_articles(limit=3, exclude_slug=None):
     articles = [a for a in ARTICLES if a["slug"] != exclude_slug]
     return articles[:limit]
+ 

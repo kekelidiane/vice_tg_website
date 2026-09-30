@@ -22,3 +22,4 @@ SITE_CONFIG = {
         "rib_url": "/static/assets/docs/rib_coopec.pdf",
     },
 }
+ 

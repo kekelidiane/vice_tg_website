@@ -103,3 +103,4 @@ def newsletter_submit(request):
         status = "error"
 
     return render(request, "partials/newsletter_result.html", {"status": status})
+ 

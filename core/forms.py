@@ -49,3 +49,4 @@ class NewsletterForm(forms.Form):
             }
         ),
     )
+ 
